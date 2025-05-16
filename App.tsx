@@ -1,17 +1,18 @@
 /* eslint-disable camelcase */
-import { StatusBar } from 'react-native'
+import { Loading } from "@components/Loading";
+import { AuthContextProvider } from "@contexts/AuthContext";
 import {
-  useFonts,
-  Roboto_700Bold,
   Roboto_400Regular,
-} from '@expo-google-fonts/roboto'
-import { GluestackUIProvider } from '@gluestack-ui/themed'
-import { config } from './config/gluestack-ui.config'
-import { Loading } from '@components/Loading'
-import { Routes } from '@routes/index'
+  Roboto_700Bold,
+  useFonts,
+} from "@expo-google-fonts/roboto";
+import { GluestackUIProvider } from "@gluestack-ui/themed";
+import { Routes } from "@routes/index";
+import { StatusBar } from "react-native";
+import { config } from "./config/gluestack-ui.config";
 
 export default function App() {
-  const [fontsLoaded] = useFonts({ Roboto_700Bold, Roboto_400Regular })
+  const [fontsLoaded] = useFonts({ Roboto_700Bold, Roboto_400Regular });
 
   return (
     <GluestackUIProvider config={config}>
@@ -20,8 +21,9 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-
-      {fontsLoaded ? <Routes /> : <Loading />}
+      <AuthContextProvider>
+        {fontsLoaded ? <Routes /> : <Loading />}
+      </AuthContextProvider>
     </GluestackUIProvider>
-  )
+  );
 }
