@@ -1,33 +1,35 @@
 import {
   BottomTabNavigationProp,
   createBottomTabNavigator,
-} from '@react-navigation/bottom-tabs'
-import { gluestackUIConfig } from '../../config/gluestack-ui.config'
+} from "@react-navigation/bottom-tabs";
+import { gluestackUIConfig } from "../../config/gluestack-ui.config";
 
-import HomeSvg from '@assets/home.svg'
-import HistorySvg from '@assets/history.svg'
-import ProfileSvg from '@assets/profile.svg'
+import HistorySvg from "@assets/history.svg";
+import HomeSvg from "@assets/home.svg";
+import ProfileSvg from "@assets/profile.svg";
 
-import { Home } from '@screens/Home'
-import { History } from '@screens/History'
-import { Profile } from '@screens/Profile'
-import { Exercise } from '@screens/Exercise'
-import { Platform } from 'react-native'
+import { Exercise } from "@screens/Exercise";
+import { History } from "@screens/History";
+import { Home } from "@screens/Home";
+import { Profile } from "@screens/Profile";
+import { Platform } from "react-native";
 
 type AppRoutes = {
-  home: undefined
-  exercise: undefined
-  profile: undefined
-  history: undefined
-}
+  home: undefined;
+  exercise: {
+    exerciseId: string;
+  };
+  profile: undefined;
+  history: undefined;
+};
 
-export type AppNavigatorRoutesProps = BottomTabNavigationProp<AppRoutes>
+export type AppNavigatorRoutesProps = BottomTabNavigationProp<AppRoutes>;
 
-const { Navigator, Screen } = createBottomTabNavigator<AppRoutes>()
+const { Navigator, Screen } = createBottomTabNavigator<AppRoutes>();
 
 export function AppRoutes() {
-  const { tokens } = gluestackUIConfig
-  const iconSize = tokens.space['6']
+  const { tokens } = gluestackUIConfig;
+  const iconSize = tokens.space["6"];
 
   return (
     <Navigator
@@ -39,9 +41,9 @@ export function AppRoutes() {
         tabBarStyle: {
           backgroundColor: tokens.colors.gray600,
           borderTopWidth: 0,
-          height: Platform.OS === 'android' ? 'auto' : 96,
-          paddingBottom: tokens.space['10'],
-          paddingTop: tokens.space['6'],
+          height: Platform.OS === "android" ? "auto" : 96,
+          paddingBottom: tokens.space["10"],
+          paddingTop: tokens.space["6"],
         },
       }}
     >
@@ -78,5 +80,5 @@ export function AppRoutes() {
         options={{ tabBarButton: () => null }}
       />
     </Navigator>
-  )
+  );
 }
