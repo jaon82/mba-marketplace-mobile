@@ -22,7 +22,7 @@ import { ToastMessage } from "@components/ToastMessage";
 import api from "@services/api";
 import { AppError } from "@utils/AppError";
 import { useEffect, useState } from "react";
-import { ExerciseDTO } from "../../mobile/src/dtos/ExerciseDTO";
+import { ExerciseDTO } from "../dtos/ExerciseDTO";
 
 type RouteParamsProps = {
   exerciseId: string;

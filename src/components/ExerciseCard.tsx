@@ -9,7 +9,7 @@ import {
 import api from "@services/api";
 import { ChevronRight } from "lucide-react-native";
 import { TouchableOpacity, TouchableOpacityProps } from "react-native";
-import { ExerciseDTO } from "../../mobile/src/dtos/ExerciseDTO";
+import { ExerciseDTO } from "../dtos/ExerciseDTO";
 
 type Props = TouchableOpacityProps & {
   data: ExerciseDTO;

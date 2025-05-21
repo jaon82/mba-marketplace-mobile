@@ -10,7 +10,7 @@ import api from "@services/api";
 import { AppError } from "@utils/AppError";
 import { useCallback, useEffect, useState } from "react";
 import { FlatList } from "react-native";
-import { ExerciseDTO } from "../../mobile/src/dtos/ExerciseDTO";
+import { ExerciseDTO } from "../dtos/ExerciseDTO";
 
 export function Home() {
   const [isLoading, setIsLoading] = useState(true);
