@@ -4,15 +4,11 @@ import {
 } from "@react-navigation/bottom-tabs";
 import { gluestackUIConfig } from "../../config/gluestack-ui.config";
 
-import HistorySvg from "@assets/history.svg";
 import HomeSvg from "@assets/home.svg";
 import ProfileSvg from "@assets/profile.svg";
 
-import { Exercise } from "@screens/Exercise";
-import { History } from "@screens/History";
 import { Home } from "@screens/Home";
 import { Profile } from "@screens/Profile";
-import { Platform } from "react-native";
 
 type AppRoutes = {
   home: undefined;
@@ -35,15 +31,12 @@ export function AppRoutes() {
     <Navigator
       screenOptions={{
         headerShown: false,
-        tabBarShowLabel: false,
-        tabBarActiveTintColor: tokens.colors.green500,
-        tabBarInactiveTintColor: tokens.colors.gray200,
+        tabBarShowLabel: true,
+        tabBarActiveTintColor: tokens.colors.orangeBase,
+        tabBarInactiveTintColor: tokens.colors.gray100,
         tabBarStyle: {
-          backgroundColor: tokens.colors.gray600,
+          backgroundColor: tokens.colors.background,
           borderTopWidth: 0,
-          height: Platform.OS === "android" ? "auto" : 96,
-          paddingBottom: tokens.space["10"],
-          paddingTop: tokens.space["6"],
         },
       }}
     >
@@ -54,15 +47,10 @@ export function AppRoutes() {
           tabBarIcon: ({ color }) => (
             <HomeSvg fill={color} width={iconSize} height={iconSize} />
           ),
-        }}
-      />
-      <Screen
-        name="history"
-        component={History}
-        options={{
-          tabBarIcon: ({ color }) => (
-            <HistorySvg fill={color} width={iconSize} height={iconSize} />
-          ),
+          tabBarLabel: "PRODUTOS",
+          tabBarLabelStyle: {
+            fontSize: tokens.fontSizes.xs,
+          },
         }}
       />
       <Screen
@@ -72,12 +60,11 @@ export function AppRoutes() {
           tabBarIcon: ({ color }) => (
             <ProfileSvg fill={color} width={iconSize} height={iconSize} />
           ),
+          tabBarLabel: "PERFIL",
+          tabBarLabelStyle: {
+            fontSize: tokens.fontSizes.xs,
+          },
         }}
-      />
-      <Screen
-        name="exercise"
-        component={Exercise}
-        options={{ tabBarButton: () => null }}
       />
     </Navigator>
   );
