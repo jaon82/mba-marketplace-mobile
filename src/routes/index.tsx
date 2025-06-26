@@ -12,14 +12,14 @@ export function Routes() {
   const { user, isLoadingUserStorageData } = useAuth();
 
   const theme = DefaultTheme;
-  theme.colors.background = gluestackUIConfig.tokens.colors.gray700;
+  theme.colors.background = gluestackUIConfig.tokens.colors.background;
 
   if (isLoadingUserStorageData) {
     return <Loading />;
   }
 
   return (
-    <Box flex={1} bg="$gray700">
+    <Box flex={1} bg="$background">
       <NavigationContainer theme={theme}>
         {user.id ? <AppRoutes /> : <AuthRoutes />}
       </NavigationContainer>

@@ -1,7 +1,6 @@
 import {
   Center,
   Heading,
-  Image,
   ScrollView,
   Text,
   useToast,
@@ -11,7 +10,6 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import { AuthNavigatorRoutesProps } from "@routes/auth.routes";
 
-import BackgroundImg from "@assets/background.png";
 import Logo from "@assets/logo.svg";
 
 import { Button } from "@components/Button";
@@ -74,27 +72,18 @@ export function SignIn() {
       showsVerticalScrollIndicator={false}
     >
       <VStack flex={1}>
-        <Image
-          w="$full"
-          h={624}
-          source={BackgroundImg}
-          defaultSource={BackgroundImg}
-          alt="Pessoas treinando"
-          position="absolute"
-        />
-
         <VStack flex={1} px="$10" pb="$16">
           <Center my="$24">
             <Logo />
 
-            <Text color="$gray100" fontSize="$sm">
-              Treine sua mente e seu corpo
+            <Heading color="$gray500">Acesse sua conta</Heading>
+
+            <Text color="$gray300" fontSize="$sm">
+              Informe seu e-mail e senha para entrar
             </Text>
           </Center>
 
           <Center gap="$2">
-            <Heading color="$gray100">Acesse sua conta</Heading>
-
             <Controller
               control={control}
               name="email"

@@ -26,7 +26,7 @@ export function Input({
       <GluestackInput
         isInvalid={isInvalid}
         h="$14"
-        borderWidth="$0"
+        borderWidth="$1"
         borderRadius="$md"
         $focus={{
           borderWidth: 1,
@@ -41,8 +41,8 @@ export function Input({
       >
         <InputField
           px="$4"
-          bg="$gray700"
-          color="$white"
+          bg="transparent"
+          color="$gray200"
           fontFamily="$body"
           placeholderTextColor="$gray300"
           {...props}
